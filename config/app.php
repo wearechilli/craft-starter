@@ -22,13 +22,13 @@ use craft\helpers\App;
 return [
     'id' => App::env('APP_ID') ?: 'CraftCMS',
     'modules' => [
-        'business-logic-module' => \modules\businesslogicmodule\BusinessLogicModule::class,
-        'pickup-rules-module' => \modules\pickuprulesmodule\PickupRulesModule::class,
-        'shop-adjusters-module' => \modules\shopadjustersmodule\ShopAdjustersModule::class,
+        // 'business-logic-module' => \modules\businesslogicmodule\BusinessLogicModule::class,
+        // 'pickup-rules-module' => \modules\pickuprulesmodule\PickupRulesModule::class,
+        // 'shop-adjusters-module' => \modules\shopadjustersmodule\ShopAdjustersModule::class,
     ],
     'bootstrap' => [
-        'business-logic-module',
-        'pickup-rules-module',
-        'shop-adjusters-module',
+        // 'business-logic-module',
+        // 'pickup-rules-module',
+        // 'shop-adjusters-module',
     ],
 ];
