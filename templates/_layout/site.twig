@@ -1,0 +1,9 @@
+{% extends "_layout/base" %}
+
+{% block app %}
+  {% include '_layout/partials/header' %}
+  <main class="flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+  {% include '_layout/partials/footer' %}
+{% endblock %}

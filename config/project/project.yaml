@@ -1,0 +1,58 @@
+dateModified: 1625671096
+email:
+  fromEmail: $SYSTEM_EMAIL
+  fromName: $SYSTEM_NAME
+  replyToEmail: null
+  template: null
+  transportSettings:
+    messageStream: ''
+    token: $POSTMARK_SERVER_TOKEN
+  transportType: craftcms\postmark\Adapter
+plugins:
+  architect:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.0
+  fathom-analytics:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.1.4
+  guest-entries:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.1.0
+  imager-x:
+    edition: lite
+    enabled: true
+    licenseKey: $PLUGIN_IMAGER_LICENSE
+    schemaVersion: 3.0.0
+  postmark:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.0.1
+  redactor:
+    edition: standard
+    enabled: true
+    schemaVersion: 2.3.0
+  seomatic:
+    edition: standard
+    enabled: true
+    licenseKey: $PLUGIN_SEOMATIC_LICENSE
+    schemaVersion: 3.0.10
+  vite:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
+system:
+  edition: solo
+  live: true
+  name: $SYSTEM_NAME
+  retryDuration: null
+  schemaVersion: 3.6.8
+  timeZone: Europe/Brussels
+users:
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoSubpath: null
+  photoVolumeUid: null
+  requireEmailVerification: true

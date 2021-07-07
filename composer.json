@@ -1,0 +1,43 @@
+{
+  "require": {
+    "craftcms/cms": "^3.6.4",
+    "craftcms/commerce": "3.3.4.1",
+    "craftcms/commerce-mollie": "^3.0",
+    "craftcms/guest-entries": "^2.4",
+    "craftcms/postmark": "^2.1",
+    "craftcms/redactor": "^2.8",
+    "enovatedesign/craft-style-inliner": "^2.3",
+    "nystudio107/craft-seomatic": "^3.3",
+    "nystudio107/craft-vite": "1.0.11",
+    "pennebaker/craft-architect": "^2.4",
+    "spacecatninja/imager-x": "^3.4",
+    "stenvdb/craft-fathom-analytics": "^1.1",
+    "vlucas/phpdotenv": "^3.4.0"
+  },
+  "require-dev": {
+    "yiisoft/yii2-shell": "^2.0.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\businesslogicmodule\\": "modules/businesslogicmodule/src/",
+      "modules\\pickuprulesmodule\\": "modules/pickuprulesmodule/src/",
+      "modules\\shopadjustersmodule\\": "modules/shopadjustersmodule/src/"
+    }
+  },
+  "config": {
+    "sort-packages": true,
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.2.5"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ],
+    "post-create-project-cmd": [
+      "@composer dump-autoload -o",
+      "@php craft setup/welcome"
+    ]
+  }
+}
