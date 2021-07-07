@@ -52,6 +52,7 @@ Make sure to check the `templates/examples.twig` file for frontend things that a
 Install commerce plugin (make sure to upgrade to **pro** version) and import `./commerce.json` with architect plugin. Most of pre built commerce templates are in `templates/_commerce`.
 
 + Install Mollie plugin (payment gateway), Style Inliner (commerce emails) and optionally Snaptcha (spam)
++ Uncomment the modules in `config/app.php`
 + Create a product type called 'Catalog' and make sure it has **multiple variants**
 + Attach the field `shopCategory` to the 'Product Fields' tab
 + Attach the field `uniqueCombinationOfVariantAttributes` to the 'Variant Fields' tab
