@@ -131,8 +131,34 @@
   ],
   "sections": [
       {
+          "name": "Variant Attribute Option Labels",
+          "handle": "variantAttributeOptionLabels",
+          "type": "channel",
+          "enableVersioning": true,
+          "propagateEntries": true,
+          "siteSettings": [
+              {
+                  "hasUrls": false,
+                  "enabledByDefault": true
+              }
+          ]
+      },
+      {
           "name": "Variant Attribute Option Values",
           "handle": "variantAttributeOptionValues",
+          "type": "structure",
+          "enableVersioning": true,
+          "maxLevels": null,
+          "siteSettings": [
+              {
+                  "hasUrls": false,
+                  "enabledByDefault": true
+              }
+          ]
+      },
+      {
+          "name": "Winkel(s) Openingsuren",
+          "handle": "locations",
           "type": "structure",
           "enableVersioning": true,
           "maxLevels": null,
@@ -603,6 +629,30 @@
   ],
   "entryTypes": [
       {
+          "sectionHandle": "variantAttributeOptionLabels",
+          "name": "Variant Attribute Option Labels",
+          "handle": "variantAttributeOptionLabels",
+          "hasTitleField": true,
+          "titleFormat": "",
+          "fieldLayout": {
+              "Content": [
+                  "__ui_1",
+                  "displayType"
+              ]
+          },
+          "fieldConfigs": {
+              "Content": {
+                  "__ui_1": {
+                      "type": "craft\\fieldlayoutelements\\EntryTitleField",
+                      "width": 100
+                  },
+                  "displayType": {
+                      "width": 100
+                  }
+              }
+          }
+      },
+      {
           "sectionHandle": "variantAttributeOptionValues",
           "name": "Variant Attribute Option Values",
           "handle": "variantAttributeOptionValues",
@@ -621,6 +671,66 @@
                       "width": 100
                   },
                   "variantAttributeLabel": {
+                      "width": 100
+                  }
+              }
+          }
+      },
+      {
+          "sectionHandle": "locations",
+          "name": "Winkel(s) Openingsuren",
+          "handle": "locations",
+          "hasTitleField": true,
+          "titleFormat": "",
+          "fieldLayout": {
+              "Content": [
+                  "__ui_1",
+                  "location",
+                  "address1",
+                  "city",
+                  "zipCode",
+                  "phone",
+                  "email",
+                  "pickupTimesText",
+                  "pickupTimes",
+                  "closingDays",
+                  "openingDays"
+              ]
+          },
+          "fieldConfigs": {
+              "Content": {
+                  "__ui_1": {
+                      "type": "craft\\fieldlayoutelements\\EntryTitleField",
+                      "width": 100
+                  },
+                  "location": {
+                      "width": 100
+                  },
+                  "address1": {
+                      "width": 100
+                  },
+                  "city": {
+                      "width": 100
+                  },
+                  "zipCode": {
+                      "width": 100
+                  },
+                  "phone": {
+                      "width": 100
+                  },
+                  "email": {
+                      "width": 100
+                  },
+                  "pickupTimesText": {
+                      "width": 100
+                  },
+                  "pickupTimes": {
+                      "width": 100
+                  },
+                  "closingDays": {
+                      "width": 100
+                  },
+                  "openingDays": {
                       "width": 100
                   }
               }
