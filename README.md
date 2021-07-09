@@ -6,6 +6,8 @@ A starter project based on nitro, craft cms & vite.js
 Setup your nitro container based upon this boilerplate. Make sure to use **PHP 7.4** to use **webp** images. This is because Imagick has not yet been updated to work with PHP 8.
 
     nitro create wearechilli/craft-starter your-site-folder
+    nitro composer i
+    nitro npm i
 
 Install craft:
 
