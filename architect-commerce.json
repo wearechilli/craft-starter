@@ -131,6 +131,19 @@
   ],
   "sections": [
       {
+          "name": "Ophaal Validatie Regels",
+          "handle": "pickupRules",
+          "type": "channel",
+          "enableVersioning": true,
+          "propagateEntries": true,
+          "siteSettings": [
+              {
+                  "hasUrls": false,
+                  "enabledByDefault": true
+              }
+          ]
+      },
+      {
           "name": "Variant Attribute Option Labels",
           "handle": "variantAttributeOptionLabels",
           "type": "channel",
@@ -595,9 +608,9 @@
           "sources": [
               "section:variantAttributeOptionValues"
           ],
-          "limit": "1",
+          "limit": "",
           "selectionLabel": "",
-          "showSiteMenu": false,
+          "showSiteMenu": true,
           "localizeRelations": false,
           "validateRelatedElements": false,
           "allowSelfRelations": false
@@ -628,6 +641,46 @@
       }
   ],
   "entryTypes": [
+      {
+          "sectionHandle": "pickupRules",
+          "name": "Ophaal Validatie Regels",
+          "handle": "pickupRules",
+          "hasTitleField": true,
+          "titleFormat": "",
+          "fieldLayout": {
+              "Content": [
+                  "__ui_1",
+                  "products",
+                  "shopCategory",
+                  "pickupRuleMessage",
+                  "pickupAllowed",
+                  "pickupDisallowed"
+              ]
+          },
+          "fieldConfigs": {
+              "Content": {
+                  "__ui_1": {
+                      "type": "craft\\fieldlayoutelements\\EntryTitleField",
+                      "width": 100
+                  },
+                  "products": {
+                      "width": 100
+                  },
+                  "shopCategory": {
+                      "width": 100
+                  },
+                  "pickupRuleMessage": {
+                      "width": 100
+                  },
+                  "pickupAllowed": {
+                      "width": 100
+                  },
+                  "pickupDisallowed": {
+                      "width": 100
+                  }
+              }
+          }
+      },
       {
           "sectionHandle": "variantAttributeOptionLabels",
           "name": "Variant Attribute Option Labels",
