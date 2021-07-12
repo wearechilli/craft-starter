@@ -36,34 +36,6 @@
 {# Set current variant, fallback to default #}
 {% set currentVariant = filteredVariants|default(product.defaultVariant) %}
 {% set currentVariantOptionIds = currentVariant.uniqueCombinationOfVariantAttributes.ids() %}
-
-{# Alpine.js data source #}
-{% js at head %}
-window.product{{ product.id }}Prices = function() {
-  return {
-    getCurrentVariant() {
-      return this.variants.find((el) => el.id === this.currentVariant);
-    },
-    getCurrentVariantStock() {
-      const variant = this.getCurrentVariant();
-      if (variant.stock === '') return '';
-      return this.getCurrentVariant().stock;
-    },
-    currentVariant: {{ currentVariant.id }},
-    variants: [
-      {% for item in product.variants|filter(el => el.enabled) %}
-      {
-        id: {{ item.id }},
-        onSale: {{ item.onSale ? 'true' : 'false' }},
-        price: '{{ item.price|currency(cart.currency) }}',
-        salePrice: '{{ item.salePrice|currency(cart.currency) }}',
-        stock: {{ item.hasUnlimitedStock ? "''" : item.stock }},
-      },
-      {% endfor %}
-    ]
-  };
-}
-{% endjs %}
 {% block content %}
 <div class="container">
   <div class="flex flex-wrap">
@@ -75,7 +47,7 @@ window.product{{ product.id }}Prices = function() {
         {# Start hidden inputs #}
         {{ actionInput('commerce/cart/update-cart') }}
         {{ csrfInput() }}
-        {{ variantAttributesLabels|length != 1 ? hiddenInput('purchasableId', currentVariant.id) }}
+        <input type="hidden" name="purchasableId" :value="getCurrentVariant().id" />
         {{ not cart.estimatedShippingAddressId ? hiddenInput('estimatedShippingAddress[countryId]', estimatedCountryId|default(craft.commerce.countries.getCountryByIso('BE').id)) }}
         {{ not cart.shippingMethodHandle ? hiddenInput('shippingMethodHandle', 'delivery') }}
         {{ redirectInput('winkelmandje') }}
@@ -123,3 +95,75 @@ window.product{{ product.id }}Prices = function() {
   </div>
 </div>
 {% endblock %}
+
+{# Alpine.js data source #}
+{% js at head %}
+window.product{{ product.id }}Prices = function() {
+  return {
+    {# Used on change events in priceVariants.twig elements #}
+    setCurrentVariant() {
+      const options = document.querySelectorAll('[name^=variantOptions]');
+      const selectedOptions = this.getSelectedOptions(options);
+      const variant = this.variants.find((el) => this.arrayEquals(JSON.parse(JSON.stringify(el.variantAttributesValues)), selectedOptions));
+      this.currentVariant = variant.id;
+    },
+    {# Internal helper function #}
+    getSelectedOptions(options) {
+      const arr = [];
+      for (let i = 0; i < options.length; i++) {
+        if (options[i].nodeName === 'SELECT') {
+          arr.push(parseInt(options[i].value));
+        } else if (options[i].checked) {
+          arr.push(parseInt(options[i].value));
+        }
+      }
+      return arr;
+    },
+    {# Used to determine which options should be selectable in priceVariants.twig #}
+    getVariantMatch(slug, value) {
+      {# Force a reaction by getting a linked property #}
+      const v = this.currentVariant;
+      {# Get other selected options except current changed one #}
+      const options = document.querySelectorAll('[name^="variantOptions"]:not([name="variantOptions['+slug+']"])');
+      const selectedOptions = this.getSelectedOptions(options);
+      selectedOptions.push(value);
+      {# Return the variant based on future matches #}
+      const variant = this.variants.find((el) => this.arrayEquals(JSON.parse(JSON.stringify(el.variantAttributesValues)), selectedOptions));
+      return variant;
+    },
+    {# Get current variant #}
+    getCurrentVariant() {
+      return this.variants.find((el) => el.id === this.currentVariant);
+    },
+    {# Normalize stock value #}
+    getCurrentVariantStock() {
+      const variant = this.getCurrentVariant();
+      if (variant.stock === '') return '';
+      return this.getCurrentVariant().stock;
+    },
+    {# currentOptions: [], #}
+    currentVariant: {{ currentVariant.id }},
+    variants: [
+      {% for item in product.variants|filter(el => el.enabled) %}
+      {
+        id: {{ item.id }},
+        variantAttributesValues: [{{ item.uniqueCombinationOfVariantAttributes.ids()|sort|join(',') }}],
+        onSale: {{ item.onSale ? 'true' : 'false' }},
+        price: '{{ item.price|currency(cart.currency) }}',
+        salePrice: '{{ item.salePrice|currency(cart.currency) }}',
+        stock: {{ item.hasUnlimitedStock ? "''" : item.stock }},
+      },
+      {% endfor %}
+    ],
+    {# Helper function #}
+    arrayEquals(a, b) {
+      a.sort();
+      b.sort();
+      return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+    }
+  };
+}
+{% endjs %}

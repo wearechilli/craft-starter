@@ -176,6 +176,8 @@ input {
         @apply border-red-500 text-red-500;
       }
     }
+
+    &:disabled + label { @apply opacity-20; }
   }
 
   &[type="number"].spinner {

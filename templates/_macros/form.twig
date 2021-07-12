@@ -82,7 +82,7 @@
 {% set defaults = {
   required: true,
   class: 'w-full min-w-20 bg-transparent text-black border border-black h-10 appearance-none px-4 cursor-pointer',
-  html: options|map((option) => tag('option', { value: option.value, text: option.text|lower, selected: (option.value == attributes.value|default('')) ? true : false, disabled: option.disabled|default(false) }))|join|raw
+  html: options|map((option) => tag('option', (attributes.value == option.value) ? option|merge({ selected: true }) : option))|join|raw
 } %}
 {% set attributes = defaults|merge(attributes|merge({ class: "#{defaults.class} #{attributes.class|default}" })) %}
 

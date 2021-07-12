@@ -2,7 +2,7 @@
 
 {% for attributeLabel in variantAttributesLabels %}
   <div class="">
-    <label class="hidden mb-2" id="{{ attributeLabel.slug }}">{{ attributeLabel.title }}</label>
+    <label class="mb-2" for="{{ attributeLabel.slug }}">{{ attributeLabel.title }}</label>
 
     {% set labelOptions = [] %}
     {% set values = variantAttributesValues|filter(el => el.variantAttributeLabel.select('entries.id').column()|first == attributeLabel.id) %}
@@ -48,15 +48,15 @@
       {% endmacro %}
 
       {{ form.select('', {
-        name: variantAttributesLabels|length > 1 ? "options[#{attributeLabel.slug}]" : "purchasableId",
+        name: "variantOptions[#{attributeLabel.slug}]",
         id: attributeLabel.slug,
-        value: attribute(labelOptions|filter(el => el.selected)|first, variantAttributesLabels|length > 1 ? 'valueId' : 'variantId'),
-        'x-on:change': "currentVariant = parseInt($event.target.value)",
+        value: '',
+        'x-on:change': "setCurrentVariant()",
         class: 'bg-beige-200-important'
        }, labelOptions|map((el) => {
-         value: variantAttributesLabels|length > 1 ? el.valueId : el.variant.id,
+         value: el.valueId,
          text: el.valueTitle ~ _self.formatDimensions(el.variant),
-         disabled: el.disabled
+         ':disabled': "getVariantMatch('#{attributeLabel.slug}', #{el.valueId}).stock === 0"
         } )) }}
     {% endif %}
 
@@ -64,12 +64,12 @@
     {% for attributeOption in labelOptions %}
       <div class="mb-4">
       {{ form.radio(attributeOption.valueTitle, {
+        name: "variantOptions[#{attributeLabel.slug}]",
         id: "options-#{attributeLabel.slug}-#{attributeOption.valueId}",
-        name: variantAttributesLabels|length > 1 ? "options[#{attributeLabel.slug}]" : "purchasableId",
-        value: variantAttributesLabels|length > 1 ? attributeOption.valueId : attributeOption.variant.id,
-        checked: attributeOption.selected,
-        disabled: attributeOption.disabled,
-        'x-on:change': "currentVariant = parseInt($event.target.value)",
+        value: attributeOption.valueId,
+        checked: loop.first ? true : false,
+        ':disabled': "getVariantMatch('#{attributeLabel.slug}', #{attributeOption.valueId}).stock === 0",
+        'x-on:change': "setCurrentVariant()",
       }) }}
       </div>
     {% endfor %}
