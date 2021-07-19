@@ -1,4 +1,4 @@
-dateModified: 1626083747
+dateModified: 1626685510
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SYSTEM_NAME
@@ -8,6 +8,26 @@ email:
     messageStream: ''
     token: $POSTMARK_SERVER_TOKEN
   transportType: craftcms\postmark\Adapter
+meta:
+  __names__:
+    6dc4edf0-e40f-4e8c-ab5c-3b4328e4566a: 'Elements (entries, categories, products, ...)' # Elements (entries, categories, products, ...)
+    12e01644-df74-4fb1-aaa1-fa499ead329c: Dummy # Dummy
+    49dfc110-37dc-4d68-90dd-d651e135753a: 'Pagina''s' # Pagina's
+    107d81ec-0965-44ab-a81b-8f2b39a961d2: Matrix # Matrix
+    49085a16-4bc0-4141-813d-e90a1f7bb7ae: Clothing # Clothing
+    a6b010a7-a3eb-4d73-b99a-9eb6996c2e97: New # New
+    a57552c9-a0b8-48b6-9660-8c3fc37bf393: Text # Text
+    af8a717f-0d3c-46a8-87f0-5b1a35207c1e: Assets # Assets
+    b0d5e2e2-02a6-4caa-b69c-37ada293280a: 'Third Party' # Third Party
+    b1bd7d2a-71dc-4269-bdf1-4c83756f8334: Home # Home
+    bbf9624e-b2d4-40ec-a394-9f3642cbfe83: 'Form elements (checkboxes, dropdowns, ...)' # Form elements (checkboxes, dropdowns, ...)
+    bc7e67d8-fb07-4107-9758-2212d5704940: Pagina # Pagina
+    c1cd6425-80af-4c42-b03f-8c0eaf604c28: $SYSTEM_NAME # $SYSTEM_NAME
+    cbc28914-1804-4719-901a-c5636024365b: 'Public Schema' # Public Schema
+    d3a93d4a-e3e4-4c3b-8374-205d5d708a38: 'Vite Demo' # Vite Demo
+    d8eb3d54-4a0d-483f-bb24-0bd69c33cc8d: SEO # SEO
+    d38f0926-eb68-48ea-a500-78062494cb2d: Tables # Tables
+    edcf43a4-b752-41fb-a84c-709e38f101b6: 'Site Beelden' # Site Beelden
 plugins:
   architect:
     edition: standard
@@ -48,7 +68,7 @@ system:
   live: true
   name: $SYSTEM_NAME
   retryDuration: null
-  schemaVersion: 3.6.8
+  schemaVersion: 3.7.7
   timeZone: Europe/Brussels
 users:
   allowPublicRegistration: false
