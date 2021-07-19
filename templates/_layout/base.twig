@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ craft.app.language }}" class="subpixel-antialiased relative">
 <head>
-  <base href="{{ alias('@viteBaseUrl') }}">
+  {% if craft.vite.devServerRunning() %}
+  <base href="{{ getenv('VITE_PRIMARY_SITE_URL') }}">
+  {% endif %}
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">

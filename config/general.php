@@ -25,14 +25,12 @@ return [
         'aliases' => [
             '@webroot' => '@root/www',
             '@viteroot' => '@webroot/dist',
-            '@viteBaseUrl' => App::env('PRIMARY_SITE_URL')
         ]
     ],
     'dev' => [
         'aliases' => [
             '@webroot' => '@root/www',
             '@viteroot' => '@root/src/www',
-            '@viteBaseUrl' => App::env('VITE_PRIMARY_SITE_URL')
         ]
     ]
 ];
