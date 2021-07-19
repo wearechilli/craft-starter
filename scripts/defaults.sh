@@ -5,5 +5,5 @@ if [[ -z "$1" ]]; then
 fi
 # Get env variables (See: https://stackoverflow.com/a/30969768/440201)
 set -o allexport
-source "./.env.db.$1"
+source "./.env"
 set +o allexport
