@@ -166,7 +166,7 @@ input {
       left: 0;
       width: 15px;
       height: 15px;
-      background: url('../../www/svg/check.svg') no-repeat center center / 15px;
+      background: url('/src/www/svg/check.svg') no-repeat center center / 15px;
     }
   }
 
