@@ -14,41 +14,6 @@
 }
 
 /*
- * Cookie banner
- */
-.cookie-banner {
-  left: auto !important;
-  right: 0 !important;
-  font-size: 12px;
-  a { text-decoration: underline; }
-
-  > div {
-    display: block !important;
-    > div { margin-right: 0 !important; }
-  }
-
-  p {
-    margin-bottom: 1em !important;
-  }
-
-  > div > div:last-child {
-    display: flex;
-    flex-direction: row-reverse;
-  }
-
-  button + br { display: none; }
-
-  button[data-accept] {
-    @apply ml-2;
-  }
-
-  button[data-decline] {
-    font-size: 12px !important;
-    text-decoration: underline !important;
-  }
-}
-
-/*
  * A responsive table element in body classes
  */
 .body table {
