@@ -1,6 +1,5 @@
 import '/src/css/styles.css';
 import 'vite/dynamic-import-polyfill'
-import PrivacyBanner from 'privacy-banner';
 import * as Ladda from 'ladda';
 
 class App {
@@ -41,16 +40,6 @@ class App {
     loader.start();
 
     this.modalModule.then(({ default: Module }) => new Module({ url }));
-  }
-
-  cookieBanner() {
-    new PrivacyBanner({
-      classList: 'cookie-banner bg-gray-100',
-      messageText: 'Deze website gebruikt functionele cookies om je ervaring te verbeteren en <a href="https://usefathom.com" target="_blank" style="text-decoration: underline;">Fathom Analytics</a> om anonieme bezoekersstatistieken bij te houden. (<a href="#">Lees meer op onze privacy policy</a>)',
-      acceptText: 'Ik ga akkoord met deze cookies',
-      declineText: 'liever niet',
-      maxWidth: '450px'
-    });
   }
 }
 
