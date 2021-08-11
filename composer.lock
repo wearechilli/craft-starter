@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d2940e11f2f74e28b7e3180116fcd836",
+    "content-hash": "0b4054a22b9f0f53cc41aaaa3b794310",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
@@ -4524,17 +4524,17 @@
             "time": "2017-06-19T16:48:17+00:00"
         },
         {
-            "name": "stenvdb/craft-fathom-analytics",
-            "version": "1.1.4",
+            "name": "stenvdb/craft-umami",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/stenvdb/craft-fathom-analytics.git",
-                "reference": "eb403d8e4bb38571ead579a0e1779c621fbe3a21"
+                "url": "https://github.com/stenvdb/craft-umami.git",
+                "reference": "b4670487c36cbd75d24685025b23e30211ed89b3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stenvdb/craft-fathom-analytics/zipball/eb403d8e4bb38571ead579a0e1779c621fbe3a21",
-                "reference": "eb403d8e4bb38571ead579a0e1779c621fbe3a21",
+                "url": "https://api.github.com/repos/stenvdb/craft-umami/zipball/b4670487c36cbd75d24685025b23e30211ed89b3",
+                "reference": "b4670487c36cbd75d24685025b23e30211ed89b3",
                 "shasum": ""
             },
             "require": {
@@ -4542,19 +4542,19 @@
             },
             "type": "craft-plugin",
             "extra": {
-                "name": "Fathom Analytics",
-                "handle": "fathom-analytics",
+                "name": "Umami",
+                "handle": "umami",
                 "hasCpSettings": true,
                 "hasCpSection": false,
-                "changelogUrl": "https://raw.githubusercontent.com/stenvdb/craft-fathom-analytics/master/CHANGELOG.md",
+                "changelogUrl": "https://raw.githubusercontent.com/stenvdb/craft-umami/master/CHANGELOG.md",
                 "components": {
-                    "reports": "stenvdb\\fathomanalytics\\services\\Reports"
+                    "reports": "stenvdb\\umami\\services\\Reports"
                 },
-                "class": "stenvdb\\fathomanalytics\\FathomAnalytics"
+                "class": "stenvdb\\umami\\Umami"
             },
             "autoload": {
                 "psr-4": {
-                    "stenvdb\\fathomanalytics\\": "src/"
+                    "stenvdb\\umami\\": "src/"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4567,20 +4567,21 @@
                     "homepage": "https://stenvdb.be"
                 }
             ],
-            "description": "Statistics and chart widgets for Fathom analytics.",
+            "description": "Statistics and chart widgets for umami",
             "keywords": [
                 "Craft",
+                "analytics",
                 "cms",
                 "craft-plugin",
                 "craftcms",
-                "fathom analytics"
+                "umami"
             ],
             "support": {
-                "docs": "https://github.com/stenvdb/craft-fathom-analytics/blob/master/README.md",
-                "issues": "https://github.com/stenvdb/craft-fathom-analytics/issues",
-                "source": "https://github.com/stenvdb/craft-fathom-analytics/tree/v1.1.4"
+                "docs": "https://github.com/stenvdb/craft-umami/blob/master/README.md",
+                "issues": "https://github.com/stenvdb/craft-umami/issues",
+                "source": "https://github.com/stenvdb/craft-umami/tree/v1.0.1"
             },
-            "time": "2020-10-19T09:32:35+00:00"
+            "time": "2021-08-03T08:39:55+00:00"
         },
         {
             "name": "sunra/php-simple-html-dom-parser",
@@ -7152,5 +7153,5 @@
     "platform-overrides": {
         "php": "7.2.5"
     },
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }

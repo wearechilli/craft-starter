@@ -1,4 +1,4 @@
-dateModified: 1626685510
+dateModified: 1628693699
 email:
   fromEmail: $SYSTEM_EMAIL
   fromName: $SYSTEM_NAME
@@ -33,10 +33,6 @@ plugins:
     edition: standard
     enabled: true
     schemaVersion: 2.0.0
-  fathom-analytics:
-    edition: standard
-    enabled: true
-    schemaVersion: 1.1.4
   guest-entries:
     edition: standard
     enabled: true
@@ -59,6 +55,10 @@ plugins:
     enabled: true
     licenseKey: $PLUGIN_SEOMATIC_LICENSE
     schemaVersion: 3.0.10
+  umami:
+    edition: standard
+    enabled: true
+    schemaVersion: 1.0.0
   vite:
     edition: standard
     enabled: true

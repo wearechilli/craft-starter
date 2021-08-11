@@ -11,7 +11,7 @@
     "nystudio107/craft-vite": "1.0.13",
     "pennebaker/craft-architect": "^2.4",
     "spacecatninja/imager-x": "v3.4.1",
-    "stenvdb/craft-fathom-analytics": "^1.1",
+    "stenvdb/craft-umami": "^1.0",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
