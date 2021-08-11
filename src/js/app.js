@@ -13,7 +13,6 @@ class App {
   }
 
   init() {
-    this.cookieBanner();
     this.imports();
     this.addEvents();
   }
