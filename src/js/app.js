@@ -1,5 +1,4 @@
 import '/src/css/styles.css';
-import 'vite/dynamic-import-polyfill'
 import * as Ladda from 'ladda';
 
 class App {
