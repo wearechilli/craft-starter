@@ -1,17 +1,17 @@
 {
   "require": {
-    "craftcms/cms": "3.7.3.2",
+    "craftcms/cms": "3.7.11",
     "craftcms/commerce": "3.3.4.1",
     "craftcms/commerce-mollie": "^3.0",
     "craftcms/guest-entries": "^2.4",
     "craftcms/postmark": "^2.1",
-    "craftcms/redactor": "^2.8",
+    "craftcms/redactor": "2.8.8",
     "enovatedesign/craft-style-inliner": "^2.3",
-    "nystudio107/craft-seomatic": "3.3.44",
-    "nystudio107/craft-vite": "1.0.13",
+    "nystudio107/craft-seomatic": "3.4.6",
+    "nystudio107/craft-vite": "1.0.15",
     "pennebaker/craft-architect": "^2.4",
-    "spacecatninja/imager-x": "v3.4.1",
-    "stenvdb/craft-umami": "^1.0",
+    "spacecatninja/imager-x": "v3.5.2",
+    "stenvdb/craft-umami": "1.0.2",
     "vlucas/phpdotenv": "^3.4.0"
   },
   "require-dev": {
