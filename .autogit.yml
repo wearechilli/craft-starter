@@ -10,8 +10,12 @@ shared_files:
     - .env
 shared_folders:
     - www/uploads
-    - www/uploads_c
-    - storage
+    - www/imager
+    - storage/backups
+    - storage/composer-backups
+    - storage/config-backups
+    - storage/logs
+    - storage/runtime
 
 # Hooks get executed at different stages during deploy
 hooks:
