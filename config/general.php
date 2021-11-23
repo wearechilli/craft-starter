@@ -19,6 +19,7 @@ return [
         'omitScriptNameInUrls' => true,
         'cpTrigger' => App::env('CP_TRIGGER') ?: 'admin',
         'securityKey' => App::env('SECURITY_KEY'),
+        'maxRevision' => 5,
         'devMode' => $isDev,
         'allowAdminChanges' => $isDev,
         'disallowRobots' => !$isProd,
