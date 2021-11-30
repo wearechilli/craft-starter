@@ -84,7 +84,7 @@ export default class Commerce {
         pickuptimeSelect.innerHTML = '';
         const openingHours = pickupTimes.find(el => el.day === event.currentTarget.value);
         if (openingHours) {
-          const closingTime = openingHours.pickupTimes.pop();
+          const closingTime = openingHours.pickupTimes[openingHours.pickupTimes.length - 1];
           openingHours.pickupTimes.forEach((el, i, arr) => {
             const option = document.createElement('option');
             if (i === 0) {
