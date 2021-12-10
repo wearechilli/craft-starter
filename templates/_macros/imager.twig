@@ -4,22 +4,35 @@
   {% set sizes = [sizes] %}
 {% endif %}
 
+{% set mergeThisIn = {
+  interlace:  true,
+  mode: 'crop',
+  effects: { sharpen: true }
+} %}
+
+{# Array of transforms (srcset) =>
+create a new transform array with the defaults added for each item #}
+{% set tempArr = [] %}
+{% for i in 0..sizes|length-1 %}
+{% set tempArr = tempArr|merge({ (i): mergeThisIn|merge(sizes[i])}) %}
+{% endfor %}
+{# We can't update the transform array because
+merge doesn't work with numeric keys.. so replace it #}
+{% set sizes = tempArr %}
+
 {# Create transforms #}
 {% set transformedImages = craft.imager.transformImage(image, sizes) %}
 
 {# If the server has support for WebP, create transforms #}
-{% if craft.imager.serverSupportsWebp() %}
-    {% set transformedImagesWebp = craft.imager.transformImage(image, sizes, { format: 'webp' }) %}
-{% endif %}
+{% set transformedImagesWebp = craft.imager.transformImage(image, sizes, { format: 'webp' }) %}
+{% set transformedImagesJpeg = craft.imager.transformImage(image, sizes) %}
 
 <picture {{ attr(attributes) }}>
-  {% if craft.imager.serverSupportsWebp() %}
-    <source sizes="100vw" srcset="{{ craft.imager.srcset(transformedImagesWebp) }}" type="image/webp">
-  {% endif %}
-  <img src="{{ craft.imager.placeholder() }}" sizes="100vw" srcset="{{ craft.imager.srcset(transformedImages) }}" {{ sizes|length == 1 ? "width=\"#{sizes[0].width}\""|raw }} {{ attributes.loading is defined ? "loading=#{attributes.loading}" }}>
+  <source sizes="100vw" srcset="{{ transformedImagesWebp|srcset }}" type="image/webp">
+  <img src="{{ transformedImagesJpeg[0].url }}" sizes="100vw" srcset="{{ transformedImagesJpeg|srcset }}" {{ sizes|length == 1 ? "width=\"#{sizes[0].width}\""|raw }} {{ attributes.loading is defined ? "loading=#{attributes.loading}" }}>
 </picture>
 {% endmacro %}
 
-{% macro url(image, size) %}
-  {{ attribute(craft.imager.transformImage(image, size), 'url') }}
+{% macro url(image, size, configOverrides = {}) %}
+  {{ attribute(craft.imager.transformImage(image, size, configOverrides), 'url') }}
 {% endmacro %}
