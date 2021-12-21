@@ -34,17 +34,15 @@ class EmailService extends Component
     // Public Methods
     // =========================================================================
 
-    public function sendEntryNotification(Entry $entry, $keys)
+    public function sendEntryNotification(Entry $entry, $config)
     {
-        $shopGlobalSet = Craft::$app->globals->getSetByHandle('general');
-        $notificationEmail = $shopGlobalSet->notificationEmail;
         $mails = [];
 
-        foreach ($keys as $key) {
-            $mail = Craft::$app->getMailer()->composeFromKey($key, [
+        foreach ($config as $item) {
+            $mail = Craft::$app->getMailer()->composeFromKey($item['handle'], [
                 'submission' => $entry
             ]);
-            $mail->setTo($notificationEmail);
+            $mail->setTo($item['to']);
             array_push($mails, $mail);
         }
 

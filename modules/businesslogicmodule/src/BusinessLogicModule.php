@@ -129,7 +129,18 @@ class BusinessLogicModule extends Module
                 && !$entry->propagating // not during propagating (avoid batch propagating)
                 && !$entry->resaving // not during resaving (avoid batch resaving)
             ) {
-                $this->emailService->sendEntryNotification($entry, ['business-logic_contact-admin-notification', 'business-logic_contact-client-notification']);
+                $globalSet = Craft::$app->globals->getSetByHandle('globals');
+                $notificationEmail = $globalSet->notificationEmail;
+                $this->emailService->sendEntryNotification($entry, [
+                    [
+                        'handle' => 'business-logic_contact-admin-notification',
+                        'to' => $notificationEmail
+                    ],
+                    [
+                        'handle' => 'business-logic_contact-client-notification',
+                        'to' => $entry->email
+                    ]
+                ]);
             }
         });
 
