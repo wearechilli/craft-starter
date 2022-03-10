@@ -1,0 +1,43 @@
+{% extends '_commerce/emails/layout' %}
+{#
+ # We're using postmark templates
+ # For more info on how to use them, see https://github.com/wildbit/postmark-templates/tree/master/templates
+ # Or live examples: https://postmarkapp.com/transactional-email-templates #}
+
+{# {% set submission = craft.entries.section('contactSubmissions').one() %} #}
+
+{% block content %}
+<span class="preheader">{{ submission.message }}
+<p style="border-top-color:currentcolor;border-top-style:none;border-top-width:0px;border-right-color:currentcolor;border-right-style:none;border-right-width:0px;border-bottom-color:currentcolor;border-bottom-style:none;border-bottom-width:0px;border-left-color:currentcolor;border-left-style:none;border-left-width:0px;border-image-outset:0;border-image-repeat:stretch;border-image-slice:100%;border-image-source:none;border-image-width:1;display:none;font-weight:400;line-height:0px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;max-height:0px;outline-color:currentcolor;outline-style:none;outline-width:0px;overflow-x:hidden;overflow-y:hidden;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌</p>
+</span>
+<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center">
+      <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+        {% include '_commerce/emails/partials/header' %}
+        <!-- Email Body -->
+        <tr>
+          <td class="email-body" width="570" cellpadding="0" cellspacing="0">
+            <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+              <!-- Body content -->
+              <tr>
+                <td class="content-cell">
+                  <div class="f-fallback">
+                    {#
+                     # We're using postmark templates
+                     # For more info on how to use them, see https://github.com/wildbit/postmark-templates/tree/master/templates
+                     # Or live examples: https://postmarkapp.com/transactional-email-templates #}
+                    <p>{{ include(template_from_string(body)|raw)|nl2br }}</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% include '_commerce/emails/partials/footer' %}
+      </table>
+    </td>
+  </tr>
+</table>
+{% endblock %}

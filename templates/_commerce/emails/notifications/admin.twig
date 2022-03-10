@@ -1,0 +1,104 @@
+{% extends '_commerce/emails/layout' %}
+{#
+ # We're using postmark templates
+ # For more info on how to use them, see https://github.com/wildbit/postmark-templates/tree/master/templates
+ # Or live examples: https://postmarkapp.com/transactional-email-templates #}
+
+{# {% set submission = craft.entries.section('eventSubmissions').one() %} #}
+
+{% block content %}
+<span class="preheader">{{ submission.message }}
+<p style="border-top-color:currentcolor;border-top-style:none;border-top-width:0px;border-right-color:currentcolor;border-right-style:none;border-right-width:0px;border-bottom-color:currentcolor;border-bottom-style:none;border-bottom-width:0px;border-left-color:currentcolor;border-left-style:none;border-left-width:0px;border-image-outset:0;border-image-repeat:stretch;border-image-slice:100%;border-image-source:none;border-image-width:1;display:none;font-weight:400;line-height:0px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;max-height:0px;outline-color:currentcolor;outline-style:none;outline-width:0px;overflow-x:hidden;overflow-y:hidden;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;">
+&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌&nbsp;‌</p>
+</span>
+<table class="email-wrapper" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+  <tr>
+    <td align="center">
+      <table class="email-content" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+        {% include '_commerce/emails/partials/header' %}
+        <!-- Email Body -->
+        <tr>
+          <td class="email-body" width="570" cellpadding="0" cellspacing="0">
+            <table class="email-body_inner" align="center" width="570" cellpadding="0" cellspacing="0" role="presentation">
+              <!-- Body content -->
+              <tr>
+                <td class="content-cell">
+                  <div class="f-fallback">
+                    {#
+                     # We're using postmark templates
+                     # For more info on how to use them, see https://github.com/wildbit/postmark-templates/tree/master/templates
+                     # Or live examples: https://postmarkapp.com/transactional-email-templates #}
+                    <p>{{ include(template_from_string(body|default(''))|raw)|nl2br }}</p>
+                    {# Add a button #}
+                    <table class="body-action" align="center" width="100%" cellpadding="0" cellspacing="0" role="presentation">
+                      <tr>
+                        <td align="center">
+                          <table width="100%" border="0" cellspacing="0" cellpadding="0" role="presentation">
+                            <tr>
+                              <td align="center">
+                                <a href="{{ submission.cpEditUrl|default('{{ submission.cpEditUrl }}') }}" class="f-fallback button" target="_blank">Bekijk dit bericht online</a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    {# Show some data #}
+                    <table class="attributes" width="100%" cellpadding="0" cellspacing="0">
+                      <tr>
+                        <td class="attributes_content">
+                          <table width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td class="attributes_item"><strong>Name:</strong> {{ submission.firstName|default('{{ submission.firstName }}') }}</td>
+                            </tr>
+                            <tr>
+                              <td class="attributes_item"><strong>Surname:</strong> {{ submission.lastName|default('{{ submission.lastName }}') }}</td>
+                            </tr>
+                            <tr>
+                              <td class="attributes_item"><strong>Title:</strong> {{ submission.job|default('{{ submission.job }}') }}</td>
+                            </tr>
+                            <tr>
+                              <td class="attributes_item"><strong>Company Name:</strong> {{ submission.company|default('{{ submission.company }}') }}</td>
+                            </tr>
+                            <tr>
+                              <td class="attributes_item"><strong>Email:</strong> {{ submission.email|default('{{ submission.email }}') }}</td>
+                            </tr>
+                            {% if submission.message|default('') is not empty %}
+                            <tr>
+                              <td class="attributes_item"><strong>Message:</strong> {{ submission.message|default('{{ submission.message }}') }}</td>
+                            </tr>
+                            {% endif %}
+                            {% if submission.event.one().title|default('') is not empty %}
+                            <tr>
+                              <td class="attributes_item"><strong>Event:</strong> {{ submission.event.one().title|default('') }}</td>
+                            </tr>
+                            <tr>
+                              <td class="attributes_item"><strong>Options:</strong> {{ submission.eventOptionsGuestEntries|filter(el => el.checked)|map(el => "#{el.checkbox}")|join(', ') }}</td>
+                            </tr>
+                            {% endif %}
+                          </table>
+                        </td>
+                      </tr>
+                    </table>
+                    {# Button issues #}
+                    <table class="body-sub">
+                      <tr>
+                        <td>
+                          <p class="sub">{{ include(template_from_string(globals.mailGeneralIssueLink)|raw)|nl2br }}</p>
+                          <p class="sub">{{ submission.cpEditUrl|default('{{ submission.cpEditUrl }}') }}</p>
+                        </td>
+                      </tr>
+                    </table>
+                    <p>{{ include(template_from_string(globals.mailGeneralSignature)|raw)|nl2br }}</p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        {% include '_commerce/emails/partials/footer' %}
+      </table>
+    </td>
+  </tr>
+</table>
+{% endblock %}
