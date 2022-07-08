@@ -1,9 +1,8 @@
 baseUrl: $PRIMARY_SITE_URL
-enabled: true
 handle: default
 hasUrls: true
 language: en
 name: $SYSTEM_NAME
 primary: true
-siteGroup: d3a93d4a-e3e4-4c3b-8374-205d5d708a38 # Vite Demo
+siteGroup: ebc783a1-3db3-42fb-8f2a-c108aed8b086 # Craft Starter
 sortOrder: 1

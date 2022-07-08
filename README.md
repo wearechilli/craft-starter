@@ -49,7 +49,15 @@ Inside `./scripts` you can find a set of bash scripts to sync databases and asse
 
 Make sure to check the `templates/examples.twig` file for frontend things that are included in the boilerplate such as: SVG's, image transforms, modals, menu overlays, form elements, etc.
 
+## ☁️ Google Cloud Storage
+
+When creating a new project, start by changing the filesystem to Google Cloud Storage.
+You need:
++ Key file (json file)
++ ProjectID (you find this in de Google console or key file)
+
 ## 💰 Commerce
+NOTE: THE PLUGIN ARCHITECT IS CURRENTLY NOT AVAILABLE FOR CRAFT 4 SO DOWNGRADE IS NEEDED (OR STARTING FROM SCRATCH). GOOD NEWS IS THAT THEYRE WORKING ON IT (https://github.com/Pennebaker/craft-architect/issues/63).
 
 Install commerce plugin (make sure to upgrade to **pro** version) and import `./commerce.json` with architect plugin. Most of pre built commerce templates are in `templates/_commerce`.
 
