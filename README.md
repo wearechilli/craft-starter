@@ -56,6 +56,8 @@ You need:
 + Key file (json file)
 + ProjectID (you find this in de Google console or key file)
 
+Nice to read: https://gist.github.com/croxton/77c610289b631998283efa637f66b9f3
+
 ## 💰 Commerce
 NOTE: THE PLUGIN ARCHITECT IS CURRENTLY NOT AVAILABLE FOR CRAFT 4 SO DOWNGRADE IS NEEDED (OR STARTING FROM SCRATCH). GOOD NEWS IS THAT THEYRE WORKING ON IT (https://github.com/Pennebaker/craft-architect/issues/63).
 
